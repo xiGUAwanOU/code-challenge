@@ -19,7 +19,11 @@ module.exports = {
     'max-len': [ 'error', 120 ],
     'no-trailing-spaces': [ 'error' ],
     'semi': [ 'error', 'always' ],
-    'space-before-function-paren': [ 'error', 'never' ],
+    'space-before-function-paren': [ 'error', {
+      'anonymous': 'always',
+      'asyncArrow': 'always',
+      'named': 'never',
+    } ],
     'object-curly-spacing': [ 'error', 'always' ],
     'quote-props': [ 'error', 'consistent' ],
     'quotes': [ 'error', 'single' ],
