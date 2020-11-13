@@ -1,6 +1,7 @@
 module.exports = {
   root: true,
   env: {
+    browser: true,
     node: true,
   },
   extends: [
@@ -38,7 +39,7 @@ module.exports = {
     {
       files: [
         '**/__tests__/*.{j,t}s?(x)',
-        '**/tests/unit/**/*.spec.{j,t}s?(x)',
+        '**/tests/**/*.spec.{j,t}s?(x)',
       ],
       env: {
         jest: true,
