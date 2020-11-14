@@ -1,4 +1,4 @@
-import ImgurService from '@/services/imgur/ImgurService';
+import ImgurService from '@/services/Imgur/ImgurService';
 import nock from 'nock';
 
 describe('ImgurService', () => {

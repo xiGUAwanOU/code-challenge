@@ -6,9 +6,9 @@ export interface GetGalleryParams {
   sort: Sort;
 }
 
-type Section = 'hot' | 'top' | 'user';
-type Sort = 'viral' | 'top' | 'time' | 'rising';
-type Window = 'day' | 'week' | 'month' | 'year' | 'all';
+export type Section = 'hot' | 'top' | 'user';
+export type Sort = 'viral' | 'top' | 'time' | 'rising';
+export type Window = 'day' | 'week' | 'month' | 'year' | 'all';
 
 export interface GetGalleryResponse {
   data: GalleryItem[];
