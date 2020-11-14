@@ -11,7 +11,7 @@
         <b>{{ windowLabel }}</b>
       </v-chip>
     </template>
-    <template v-else-if="filterSettings.section === 'hot'">
+    <template v-else>
       <v-chip class="filter-setting-labels__label">
         Sorted by:
         <b>{{ sortLabel }}</b>
