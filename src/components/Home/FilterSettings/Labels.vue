@@ -32,7 +32,7 @@ import { sectionWording, sortWording, windowWording } from './CommonData';
 import { FilterSettings } from './Types';
 
 @Component
-export default class ThumbnailCard extends Vue {
+export default class FilterSettingLabels extends Vue {
   @Prop({ type: Object, required: true }) private filterSettings!: FilterSettings;
 
   private get sectionLabel() {

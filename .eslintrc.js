@@ -12,30 +12,30 @@ module.exports = {
     ecmaVersion: 2020,
   },
   rules: {
-    'array-bracket-spacing': [ 'error', 'always' ],
-    'arrow-parens': [ 'error', 'always' ],
-    'comma-dangle': [ 'error', 'always-multiline' ],
+    'array-bracket-spacing': ['error', 'never'],
+    'arrow-parens': ['error', 'always'],
+    'comma-dangle': ['error', 'always-multiline'],
     'dot-notation': 'off',
-    'linebreak-style': [ 'error', 'unix' ],
-    'max-len': [ 'error', {
+    'linebreak-style': ['error', 'unix'],
+    'max-len': ['error', {
       'code': 120,
       'ignoreUrls': true,
       'ignoreStrings': true,
       'ignoreTemplateLiterals': true,
       'ignoreRegExpLiterals': true,
-    } ],
+    }],
     'no-mixed-operators': 'off',
-    'no-trailing-spaces': [ 'error' ],
-    'semi': [ 'error', 'always' ],
-    'space-before-function-paren': [ 'error', {
+    'no-trailing-spaces': ['error'],
+    'semi': ['error', 'always'],
+    'space-before-function-paren': ['error', {
       'anonymous': 'always',
       'named': 'never',
       'asyncArrow': 'always',
-    } ],
-    'object-curly-spacing': [ 'error', 'always' ],
+    }],
+    'object-curly-spacing': ['error', 'always'],
     'prefer-promise-reject-errors': 'off',
-    'quote-props': [ 'error', 'consistent' ],
-    'quotes': [ 'error', 'single' ],
+    'quote-props': ['error', 'consistent'],
+    'quotes': ['error', 'single'],
 
     'standard/no-callback-literal': 'off',
 

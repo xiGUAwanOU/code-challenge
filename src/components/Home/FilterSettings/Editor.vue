@@ -74,25 +74,25 @@ export default class FilterSettingEditor extends Vue {
   private showDialog: boolean = false;
   private filterSettingsInEditing: FilterSettings | null = null;
 
-  private sectionItems = ([ 'hot', 'top', 'user' ] as Section[])
+  private sectionItems = (['hot', 'top', 'user'] as Section[])
     .map((value) => ({
       text: sectionWording[value],
       value,
     }));
 
-  private hotSortItems = ([ 'viral', 'top', 'time' ] as Sort[])
+  private hotSortItems = (['viral', 'top', 'time'] as Sort[])
     .map((value) => ({
       text: sortWording[value],
       value,
     }));
 
-  private userSortItems = ([ 'viral', 'time', 'rising' ] as Sort[])
+  private userSortItems = (['viral', 'time', 'rising'] as Sort[])
     .map((value) => ({
       text: sortWording[value],
       value,
     }));
 
-  private windowItems = ([ 'day', 'week', 'month', 'year', 'all' ] as Window[])
+  private windowItems = (['day', 'week', 'month', 'year', 'all'] as Window[])
     .map((value) => ({
       text: windowWording[value],
       value,

@@ -30,6 +30,7 @@ export interface GalleryImage extends GalleryItemMetadata {
   height: number;
   link: string;
   mp4: string;
+  looping: boolean;
 }
 
 interface GalleryItemMetadata {

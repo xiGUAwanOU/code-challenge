@@ -27,12 +27,14 @@
           @click="onLoadMoreButtonClick"
         >I want more!!</v-btn>
       </div>
+
+      <image-details-dialog ref="imageDetails" />
     </v-main>
   </v-app>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Ref, Vue } from 'vue-property-decorator';
 
 import { GalleryItem, GetGalleryParams } from '@/services/Imgur/ImgurTypes';
 
@@ -42,6 +44,8 @@ import { FilterSettings } from '@/components/Home/FilterSettings/Types';
 
 import ThumbnailGrid from '@/components/Home/Thumbnails/Grid.vue';
 
+import ImageDetailsDialog from '@/components/Home/ImageDetails/Dialog.vue';
+
 import ImgurService from '@/services/Imgur/ImgurService';
 
 @Component({
@@ -49,9 +53,13 @@ import ImgurService from '@/services/Imgur/ImgurService';
     FilterSettingEditor,
     FilterSettingLabels,
     ThumbnailGrid,
+    ImageDetailsDialog,
   },
 })
 export default class Home extends Vue {
+  @Ref('imageDetails')
+  private imageDetails!: ImageDetailsDialog;
+
   private lastPage: number = 0;
   private galleryItems: GalleryItem[] = [];
   private cachedGalleryItems: GalleryItem[] = [];
@@ -89,7 +97,7 @@ export default class Home extends Vue {
   }
 
   private onCardClick(galleryItem: GalleryItem) {
-    console.log(JSON.stringify(galleryItem, null, 2));
+    this.imageDetails.show(galleryItem);
   }
 
   private clearGalleryItems() {

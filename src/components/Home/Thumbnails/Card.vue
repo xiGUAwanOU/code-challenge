@@ -138,7 +138,7 @@ export default class ThumbnailCard extends Vue {
   position: absolute;
   bottom: 0;
   padding: 10px;
-  color: #000000 !important;
-  background-color: #e0e0e0;
+  color: #ffffff !important;
+  background-color: #00000088;
 }
 </style>
