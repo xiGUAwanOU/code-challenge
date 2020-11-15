@@ -1,7 +1,7 @@
 export interface GetGalleryParams {
   section: Section;
   showViral: boolean;
-  window: Window;
+  window?: Window;
   page: number;
   sort: Sort;
 }
@@ -19,14 +19,15 @@ export type GalleryItem = GalleryImage | GalleryAlbum;
 export interface GalleryAlbum extends GalleryItemMetadata {
   is_album: true;
   cover: string;
+  images: GalleryImage[];
 }
 
 export interface GalleryImage extends GalleryItemMetadata {
   is_album: false;
-  type: string;
   animated: boolean;
-  looping: boolean;
-  size: number;
+  type: string;
+  width: number;
+  height: number;
   link: string;
   mp4: string;
 }
