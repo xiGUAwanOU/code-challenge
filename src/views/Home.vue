@@ -20,7 +20,9 @@
       <thumbnail-grid :galleryItems="galleryItems" @cardClick="onCardClick" />
 
       <div class="home__load-more-button-container">
+        <v-icon v-if="loading" class="home__loading-indicator" x-large>fa-spinner fa-spin</v-icon>
         <v-btn
+          v-else
           class="home__load-more-button"
           color="grey lighten-2"
           x-large
@@ -60,6 +62,7 @@ export default class Home extends Vue {
   @Ref('imageDetails')
   private imageDetails!: ImageDetailsDialog;
 
+  private loading: boolean = false;
   private lastPage: number = 0;
   private galleryItems: GalleryItem[] = [];
   private cachedGalleryItems: GalleryItem[] = [];
@@ -107,6 +110,8 @@ export default class Home extends Vue {
   }
 
   private async loadGalleryItems(numberOfItems: number) {
+    this.loading = true;
+
     let counter = numberOfItems;
 
     while (counter > 0) {
@@ -132,6 +137,8 @@ export default class Home extends Vue {
         counter--;
       }
     }
+
+    this.loading = false;
   }
 }
 </script>
