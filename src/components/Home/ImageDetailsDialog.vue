@@ -6,7 +6,12 @@
     transition="dialog-bottom-transition"
     v-model="showDialog"
   >
-    <v-card v-if="galleryItem" class="image-details-dialog__dialog" color="black">
+    <v-card
+      v-if="galleryItem"
+      class="image-details-dialog__dialog"
+      color="black"
+      v-resize="onResize"
+    >
       <v-responsive class="image-details-dialog__container" max-width="800px" height="100%">
         <v-toolbar
           ref="toolbar"
@@ -110,12 +115,10 @@ export default class ImageDetailsDialog extends Vue {
 
   public close() {
     this.galleryItem = null;
-    window.removeEventListener('resize', this.resizeEventListener);
   }
 
   public async show(galleryItem: GalleryItem) {
     this.galleryItem = galleryItem;
-    window.addEventListener('resize', this.resizeEventListener);
 
     await this.$nextTick();
     this.calculateContentMarginTop();
@@ -123,6 +126,10 @@ export default class ImageDetailsDialog extends Vue {
 
   private onCloseButtonClick() {
     this.close();
+  }
+
+  private onResize() {
+    this.calculateContentMarginTop();
   }
 
   private calculateContentMarginTop() {
@@ -165,6 +172,7 @@ export default class ImageDetailsDialog extends Vue {
 .image-details-dialog__image {
   display: block;
   max-width: 100%;
+  max-height: 100vh;
   margin: 40px auto;
   outline: none;
 }

@@ -1,30 +1,32 @@
 <template>
   <v-app id="app" class="home">
     <v-app-bar class="home__header" height="60px" color="grey lighten-2" elevation="7" fixed>
+      <v-spacer />
       <v-toolbar-title class="home__site-title-container">
         <h1 class="home__site-title">codeChallenge</h1>
       </v-toolbar-title>
-
       <v-spacer />
+    </v-app-bar>
 
+    <v-main class="home__content">
       <filter-setting-editor
         class="home__filter-setting-editor"
         :filterSettings="filterSettings"
         @update:filterSettings="onFilterSettingsChange"
       />
-    </v-app-bar>
 
-    <v-main class="home__content">
-      <filter-setting-labels :filterSettings="filterSettings" />
-
-      <thumbnail-grid :galleryItems="galleryItems" @cardClick="onCardClick" />
+      <thumbnail-grid
+        class="home__thumbnail-grid"
+        :galleryItems="galleryItems"
+        @cardClick="onCardClick"
+      />
 
       <div class="home__load-more-button-container">
         <v-icon v-if="loading" class="home__loading-indicator" x-large>fa-spinner fa-spin</v-icon>
         <v-btn
           v-else
           class="home__load-more-button"
-          color="grey lighten-2"
+          color="primary"
           x-large
           @click="onLoadMoreButtonClick"
         >I want more!!</v-btn>
@@ -39,21 +41,17 @@
 import { Component, Ref, Vue } from 'vue-property-decorator';
 
 import { GalleryItem, GetGalleryParams } from '@/services/Imgur/ImgurTypes';
+import { FilterSettings } from '@/components/Home/HomeTypes';
 
-import FilterSettingEditor from '@/components/Home/FilterSettings/Editor.vue';
-import FilterSettingLabels from '@/components/Home/FilterSettings/Labels.vue';
-import { FilterSettings } from '@/components/Home/FilterSettings/Types';
-
+import FilterSettingEditor from '@/components/Home/FilterSettingEditor.vue';
 import ThumbnailGrid from '@/components/Home/Thumbnails/Grid.vue';
-
-import ImageDetailsDialog from '@/components/Home/ImageDetails/Dialog.vue';
+import ImageDetailsDialog from '@/components/Home/ImageDetailsDialog.vue';
 
 import ImgurService from '@/services/Imgur/ImgurService';
 
 @Component({
   components: {
     FilterSettingEditor,
-    FilterSettingLabels,
     ThumbnailGrid,
     ImageDetailsDialog,
   },
@@ -156,7 +154,11 @@ export default class Home extends Vue {
 }
 
 .home__content {
-  margin: 75px 15px;
+  margin: 90px 15px;
+}
+
+.home__thumbnail-grid {
+  margin-top: 30px;
 }
 
 .home__load-more-button-container {
