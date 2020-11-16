@@ -164,6 +164,11 @@ export default class ImageDetailsDialog extends Vue {
   font-weight: bold;
 }
 
+.image-details-dialog__rating-data-item {
+  display: inline-block;
+  margin-right: 10px;
+}
+
 .image-details-dialog__description {
   padding: 0 20px;
   color: white;
